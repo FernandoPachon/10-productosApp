@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useReducer } from "react";
 import { Usuario } from "../interfaces/appInterfaces";
 
 type AuthContextProps={
@@ -6,6 +6,18 @@ type AuthContextProps={
     token:string |null;
     user:Usuario |null;
     status:'checking'|'authenticated'|'not-authenticated';
-
+    singUp:()=>void;
+    singIn:()=>void;
+    logOut:()=>void;
+    removeError:()=>void;
 }
-const AuthContext=createContext({})
+export const AuthContext=createContext({}as AuthContextProps)
+export const AuthProvider=({children}:any)=>{
+    return(
+        <AuthContext.Provider value={{
+
+        }}>
+            {children}
+        </AuthContext.Provider>
+    )
+}
