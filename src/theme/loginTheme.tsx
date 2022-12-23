@@ -1,12 +1,20 @@
 import { StyleSheet } from 'react-native';
 
 export const loginStyles=StyleSheet.create({
+    formContainer:{
+        flex: 1,
+        paddingHorizontal:30,
+        justifyContent: 'center',
+        height:600,
+        marginBottom:50
+    },
     title:{
         color:"white",
         fontSize:30,
         fontWeight:"bold",
-        marginTop:20
-
+        marginTop:20,
+        textAlign: 'center',
+        fontFamily:"Helvetica"
     },
     label:{
         marginTop:25,
@@ -20,6 +28,25 @@ export const loginStyles=StyleSheet.create({
     buttonContainer:{
         alignItems:"center",
         marginTop:50,
-        
+
+    },
+    button:{
+        borderWidth:2,
+        paddingHorizontal:20,
+        borderColor:"white",
+        paddingVertical:5,
+        borderRadius:100
+    },
+    buttonText:{
+        fontSize:18,
+        color:"white",
+    },
+    newUserContainer:{
+        alignItems:'flex-end'
+    },
+    buttonReturn:{
+        position:'absolute',
+        top:50,
+        left:20,
     }
 })

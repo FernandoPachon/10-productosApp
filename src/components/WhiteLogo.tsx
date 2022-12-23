@@ -6,7 +6,7 @@ export const WhiteLogo = () => {
   return (
 <View style={styles.container}>
      <Image
-        source={require('../assets/react-logo-white.png')}
+        source={require('../assets/battle_vector.png')}
         style={{
             width:110,
             height:100

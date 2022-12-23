@@ -7,13 +7,13 @@ export const Background = () => {
 <View 
 style={{
     position:'absolute',
-    backgroundColor:'#5856D6',
-    top:-150,
+    backgroundColor:'#2D4F76',
+    //top:-150,
     width:700,
-    height:850,
-    transform:[
-        {rotate:'-60deg'}
-    ]
+    height:900,
+   /*  transform:[
+        {rotate:'10deg'}
+    ] */
 }}
 />
    
