@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext,useEffect } from 'react';
 import {
   View,
   Text,
@@ -7,23 +7,41 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
   Keyboard,
+  Alert
 } from 'react-native';
 import Background from '../components/Background';
 import WhiteLogo from '../components/WhiteLogo';
 import {loginStyles} from '../theme/loginTheme';
 import { useForm } from '../hooks/useForm';
 import { StackScreenProps } from '@react-navigation/stack';
+import { AuthContext } from '../context/AuthContex';
 
 interface Props extends StackScreenProps<any,any>{}
 
 export const LoginScreen = ({navigation}:Props) => {
+  const {singIn,errorMessage,removeError}= useContext(AuthContext)
   const {email,password,onChange}=useForm({
     email:'',
     password:'',
   });
+  useEffect(() => {
+      if(errorMessage?.length===0)return;
+      Alert.alert(
+        'Error al conectarse ❌', 
+        errorMessage,
+        [
+          {
+            text:'Ok',
+            onPress:removeError
+          }
+        ]
+        );
+  }, [errorMessage])
+  
   const onLogin =()=>{
     console.log({email,password,onChange});
     Keyboard.dismiss()
+    singIn({correo:email,password});
   }
   return (
     <>
