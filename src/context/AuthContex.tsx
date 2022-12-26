@@ -36,7 +36,6 @@ export const AuthProvider=({children}:any)=>{
         if(resp.status!==200){
             return dispatch({type:"notAuthenticated"})
         }
-
         dispatch({
             type:"singUP",
             payload:{
