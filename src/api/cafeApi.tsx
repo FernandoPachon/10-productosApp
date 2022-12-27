@@ -1,18 +1,20 @@
-import axios from "axios";
+import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const baseURL='http://192.168.101.76:8080/api';
+const baseURL = 'http://192.168.101.70:8080/api';
 
-const cafeApi= axios.create({baseURL});
+const cafeApi = axios.create({ baseURL });
 
 cafeApi.interceptors.request.use(
-
-    async(config)=>{
-        const token=await AsyncStorage.getItem('token' ) ;
-      if(token){ 
-      config.headers['x-token']=token;
+    async(config:any) => {
+        const token = await AsyncStorage.getItem('token');
+        if ( token ) {
+            config.headers['x-token'] = token;
+        }
+        return config;
     }
-    return config;
-}
-)
+);
+
+
+
 export default cafeApi;
